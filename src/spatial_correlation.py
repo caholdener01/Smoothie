@@ -79,7 +79,7 @@ def compute_correlation_matrix(X):
 
 
 
-def get_correlations_to_GOI(pearsonR_mat, gene_names, GOI, reverse_order=False):
+def get_correlations_to_GOI(pearsonR_mat, gene_names, GOI, reverse_order=False, plot_histogram=True):
     """
     Retrieves and ranks the correlation of all genes with a specified gene of interest (GOI).
     
@@ -92,6 +92,8 @@ def get_correlations_to_GOI(pearsonR_mat, gene_names, GOI, reverse_order=False):
         The gene of interest for which correlations are ranked.
     reverse_order (bool, optional):
         If True, sorts correlations in ascending order. Defaults to descending order.
+    plot_histogram (bool, optional):
+        If True, plots the histogram of correlations values to GOI. Defaults to True.
     
     Returns:
     numpy.ndarray:
@@ -111,14 +113,15 @@ def get_correlations_to_GOI(pearsonR_mat, gene_names, GOI, reverse_order=False):
     goi_num = np.where(gene_names == GOI)[0]
     goi_pearson_R = pearsonR_mat[:, goi_num].flatten()
     
-    # Plot histogram of Pearson correlations
-    plt.figure(figsize=(6, 4), dpi=300)
-    plt.hist(goi_pearson_R, bins=100, color='blue', edgecolor='black')
-    plt.xlabel('PCC')
-    plt.ylabel('Frequency')
-    plt.title(f'Correlation of all genes with {GOI}')
-    plt.tight_layout()
-    plt.show()
+    if plot_histogram:
+        # Plot histogram of Pearson correlations
+        plt.figure(figsize=(6, 4), dpi=300)
+        plt.hist(goi_pearson_R, bins=100, color='blue', edgecolor='black')
+        plt.xlabel('PCC')
+        plt.ylabel('Frequency')
+        plt.title(f'Correlation of all genes with {GOI}')
+        plt.tight_layout()
+        plt.show()
     
     # Sort correlations
     sorted_idx = np.argsort(goi_pearson_R if reverse_order else -goi_pearson_R)

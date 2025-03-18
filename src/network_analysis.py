@@ -20,10 +20,10 @@ def make_spatial_network(pearsonR_mat,
                          output_folder,
                          gene_labels_list=None,
                          gene_labels_names=None,
-                         save_network=None,
-                         save_gene_labels=None,
-                         trials=None,
-                         random_seed=None):
+                         save_network=True,
+                         save_gene_labels=True,
+                         trials=20,
+                         random_seed=0):
     """
     Generates a spatial network from a Pearson correlation matrix, performs Infomap clustering, 
     and calculates various network metrics for genes in the dataset.
@@ -66,7 +66,7 @@ def make_spatial_network(pearsonR_mat,
     Returns:
     --------
     edge_list : list
-        List of edges in the format [gene1, gene2, PCC, Infomap_PCC].
+        List of edges in the format [gene1, gene2, PCC, Rescaled_PCC].
     
     node_label_df : pd.DataFrame
         DataFrame with gene names, community labels, and various network metrics.
@@ -102,7 +102,7 @@ def make_spatial_network(pearsonR_mat,
     assert isinstance(output_folder, str) and os.path.isdir(output_folder), (
         "Please specify a valid existing directory for output_folder."
     )
-
+    
     # gene_labels_list
     if gene_labels_list is not None:
         assert isinstance(gene_labels_list, list), "gene_labels_list must be a list."
@@ -120,23 +120,13 @@ def make_spatial_network(pearsonR_mat,
             "gene_labels_list and gene_labels_names must have the same length."
         )
     
-    # save_network and save_gene_labels (default to True)
-    save_network = True if save_network is None else save_network
-    save_gene_labels = True if save_gene_labels is None else save_gene_labels
-    
     # trials
-    if trials is None:
-        trials = 20
-    else:
-        assert isinstance(trials, int) and trials >= 1, "trials must be a positive integer."
+    assert isinstance(trials, int) and trials >= 1, "trials must be a positive integer."
     
-    # random_seed (default to 0)
-    random_seed = 0 if random_seed is None else random_seed
-
     
     ### CREATE CORRELATION NETWORK
 
-    gene_names = np.array(gene_names.copy())
+    gene_names = np.array(gene_names)
     
     # extract lower triangle of pearsonR_mat
     lower_tri_indices = np.tril_indices(pearsonR_mat.shape[0], -1)
@@ -161,7 +151,7 @@ def make_spatial_network(pearsonR_mat,
     # save network edge list
     if save_network:
         output_network_filename = (
-            f"{output_folder}network_PCC{pcc_cutoff}_clustPow{clustering_power}.csv"
+            f"{output_folder}/network_PCC{pcc_cutoff}_clustPow{clustering_power}.csv"
         )
         with open(output_network_filename, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
@@ -219,11 +209,174 @@ def make_spatial_network(pearsonR_mat,
     # save gene labels
     if save_gene_labels:
         output_nodelabels_filename = (
-            f"{output_folder}nodelabels_PCC{pcc_cutoff}_clustPow{clustering_power}.csv"
+            f"{output_folder}/nodelabels_PCC{pcc_cutoff}_clustPow{clustering_power}.csv"
         )
         node_label_df.to_csv(output_nodelabels_filename, index=False)
 
     return edge_list, node_label_df
+
+
+def make_geneset_spatial_network(pearsonR_mat, 
+                                 gene_names, 
+                                 node_label_df, 
+                                 gene_list, 
+                                 low_pcc_cutoff, 
+                                 output_folder,
+                                 intra_geneset_edges_only=False, 
+                                 save_network=True, 
+                                 save_gene_labels=True):
+    """
+    Given a clustered network, construct a new network with a lower PCC cutoff for just a provided geneset.
+
+    Parameters:
+    -----------
+    pearsonR_mat (np.ndarray):  
+        Pearson correlation coefficient matrix for genes.  
+
+    gene_names (list):  
+        List of gene names corresponding to rows/columns in pearsonR_mat.  
+
+    node_label_df (pd.DataFrame):  
+        DataFrame containing gene names and their community labels. 
+
+    gene_list (list):  
+        List of genes to retain in the subset network.  
+
+    low_pcc_cutoff (float):  
+        Minimum PCC required to include an edge in the new network. 
+
+    output_folder : str
+        Directory where output files (network and node labels) will be saved.
+
+    intra_geneset_edges_only (bool):
+        A boolean value specifying what edges should be added to the network. Defaults to False.
+        - True: Only add edges where both nodes appear in gene_list
+        - False: Add edges where at least one node appears in gene_list
+
+    save_network : bool, optional
+        Whether to save the network edge list as a CSV file. Defaults to True.
+    
+    save_gene_labels : bool, optional
+        Whether to save the gene labels as a CSV file. Defaults to True.
+
+    Returns:
+    --------
+    geneset_edge_list (list):  
+        List of geneset edges in the format [gene1, gene2, PCC].
+
+    geneset_node_label_df (pd.DataFrame):  
+        DataFrame with updated community labels, including weak_community_label.
+    """
+    gene_names = np.array(gene_names)
+    
+    # Create a mapping from gene name to index
+    gene_index_map = {gene: i for i, gene in enumerate(gene_names)}
+
+    # Filter Pearson matrix for genes in and out of the gene list
+    geneset_indices = [gene_index_map[gene] for gene in gene_list if gene in gene_index_map]
+    non_geneset_indices = [gene_index_map[gene] for gene in gene_names if gene not in gene_index_map]
+
+    ## Construct edgelist with intra-geneset edges
+    sub_mat = pearsonR_mat[np.ix_(geneset_indices, geneset_indices)]
+
+    # extract lower triangle of pearsonR_mat
+    lower_tri_indices = np.tril_indices(sub_mat.shape[0], -1)
+    lower_tri_values = sub_mat[lower_tri_indices]
+    
+    # apply hard thresholding
+    valid_indices = np.where(lower_tri_values > low_pcc_cutoff)[0]
+    
+    # get valid edge indices
+    rows, cols = lower_tri_indices[0][valid_indices], lower_tri_indices[1][valid_indices]
+    
+    # construct edge list: [gene1, gene2, PCC]
+    geneset_edge_list = [
+        [gene_names[geneset_indices[rows[i]]], gene_names[geneset_indices[cols[i]]], sub_mat[rows[i], cols[i]]]
+        for i in range(len(valid_indices))
+    ]
+
+    ## Optionally, construct edgelist between gene_list members and non-gene_list members
+    if not intra_geneset_edges_only:
+        
+        outer_sub_mat = pearsonR_mat[np.ix_(geneset_indices, non_geneset_indices)]
+
+        # apply hard thresholding
+        valid_indices = np.where(outer_sub_mat > low_pcc_cutoff)[0]
+        
+        # get valid edge indices
+        rows, cols = outer_sub_mat[0][valid_indices], outer_sub_mat[1][valid_indices]
+        
+        # construct edge list: [gene1, gene2, PCC]
+        inter_geneset_edge_list = [
+            [gene_names[geneset_indices[rows[i]]], gene_names[non_geneset_indices[cols[i]]], outer_sub_mat[rows[i], cols[i]]]
+            for i in range(len(valid_indices))
+        ]
+        # Concatenate edgelists for output
+        geneset_edge_list = geneset_edge_list + inter_geneset_edge_list
+
+    ## Construct geneset_node_label_df
+    # Filter node_label_df to keep only communities with size >= 2
+    filtered_communities = node_label_df.groupby('community_label').filter(lambda x: len(x) >= 2)
+
+    # Identify strongly connected genes
+    strong_genes = set(filtered_communities['name'])
+
+    # Initialize weak_community_label column
+    filtered_communities['weak_community_label'] = -1
+
+    # Adjust diagonal of PCC matrix to 0.0
+    np.fill_diagonal(pearsonR_mat, 0.0)
+    
+    # Assign weak_community_labels for gene_list genes not in strong_genes
+    for gene in gene_list:
+        if gene not in strong_genes:
+            gene_idx = gene_index_map.get(gene)
+            if gene_idx is not None:
+                # Get PCC values and find the strongest connected gene in strong_genes
+                gene_pcc_values = pearsonR_mat[gene_idx]
+                max_index = np.argmax(gene_pcc_values)  # Get index of highest PCC
+                highest_pcc_gene = gene_names[max_index]  # Get the corresponding gene name
+                highest_pcc_value = gene_pcc_values[max_index]  # Get the highest PCC value
+                
+                if highest_pcc_gene in strong_genes and highest_pcc_value > low_pcc_cutoff:
+                    # Determine weak community label from the strongest connected gene's community label
+                    label = filtered_communities.loc[
+                        filtered_communities['name'] == highest_pcc_gene, 'community_label'
+                    ].values[0]
+                    # Add gene_list gene to dataframe
+                    new_row = pd.DataFrame([{col: -1 for col in filtered_communities.columns}])
+                    new_row.loc[0, ['name', 'weak_community_label']] = [gene, label]
+                    filtered_communities = pd.concat([filtered_communities, new_row], ignore_index=True)
+
+    # Adjust diagonal of PCC matrix back to 1.0
+    np.fill_diagonal(pearsonR_mat, 1.0)
+
+    # Add column to df for whether gene is a gene_list member
+    geneset_member = [gene in gene_list for gene in filtered_communities['name']]
+    filtered_communities['geneset_member'] = geneset_member
+    # Sort to put gene_list members at the top of output
+    geneset_node_label_df = filtered_communities.sort_values(by='geneset_member', ascending=False, kind='stable')
+
+    # save network edge list
+    if save_network:
+        edgelist_tag = "strict_" if intra_geneset_edges_only else ""
+        output_network_filename = (
+            f"{output_folder}/{edgelist_tag}geneset_network_low_PCC{low_pcc_cutoff}.csv"
+        )
+        with open(output_network_filename, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(['source', 'target', 'PCC'])  # Write header
+            writer.writerows(geneset_edge_list)
+            
+    # save gene labels
+    if save_gene_labels:
+        output_nodelabels_filename = (
+            f"{output_folder}/geneset_nodelabels_low_PCC{low_pcc_cutoff}.csv"
+        )
+        geneset_node_label_df.to_csv(output_nodelabels_filename, index=False)
+
+    return geneset_edge_list, geneset_node_label_df
+
 
 
 ### Scale-Free Topography Index Functions (adapted from WGCNA - https://pubmed.ncbi.nlm.nih.gov/16646834/)
@@ -256,7 +409,6 @@ def compute_sfti(degrees):
     sfti = corr ** 2
 
     return sfti
-
 
 def analyze_sfti_vs_thresholding_params(corr_matrix, cutoffs, powers):
     """
