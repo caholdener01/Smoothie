@@ -162,13 +162,14 @@ def plot_modules(sm_adata, node_label_df, output_folder, plots_per_row, min_gene
 
         counter=1
         for ax, module_genes in zip(axes, modules_to_plot):
-            # Compute module score (sum of gene expressions in the module)
-            valid_genes = [gene for gene in module_genes if gene in sm_adata.var_names]
-            module_score = np.zeros(sm_adata.n_obs)
-            if valid_genes:
-                module_score = np.sum(sm_adata[:, valid_genes].X, axis=1)
 
-            sm_adata.obs['module_score'] = module_score
+            # Compute module score (sum of 0-to-1 rescaled gene expression from the module)
+            temp_gene_idx = [gene in module_genes for gene in sm_adata.var_names]
+            temp_sm_adata = sm_adata.X[:, temp_gene_idx]
+            col_maxs = np.max(temp_sm_adata, axis=0)
+            temp_norm_sm_adata = temp_sm_adata / col_maxs
+            combined_cluster_surface = np.sum(temp_norm_sm_adata, axis=1)
+            sm_adata.obs['module_score'] = combined_cluster_surface
 
             sc.pl.spatial(
                 sm_adata,
@@ -450,7 +451,7 @@ def plot_modules_multisample(sm_adata_set, adata_set_names, node_label_df, outpu
             else:
                 # Independent scaling: Normalize each dataset separately
                 temp_gene_idx = [gene in temp_geneset for gene in temp_adata.var_names]
-                temp_sm_adata = temp_adata.X[:, temp_gene_idx].copy()
+                temp_sm_adata = temp_adata.X[:, temp_gene_idx]
                 col_maxs = np.max(temp_sm_adata, axis=0)
                 temp_norm_sm_adata = temp_sm_adata / col_maxs
                 combined_cluster_surface = np.sum(temp_norm_sm_adata, axis=1)
