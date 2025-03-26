@@ -398,7 +398,9 @@ def run_inplace_smoothing(ADATA,
         gc.collect()
         time.sleep(0.1)
 
+        # Filter non-empty results and accumulate
         for result in X_sm_results_chunk:
+            if isinstance(result, np.ndarray):
                 X_sm_list.append(result)
 
         # Filter chunk .obs and .obsm for reconstructing final smoothed adata
