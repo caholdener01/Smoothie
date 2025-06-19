@@ -11,7 +11,7 @@ from matplotlib.colors import LinearSegmentedColormap
 
 def plot_gene(sm_adata, gene_name, output_folder, figsize=(1,1), 
               spot_size=25, fontsize=6, fontfamily='sans-serif', cmap=None,
-              dpi=900, save_plot=True):
+              dpi=300, save_plot=True):
     """
     Plots the spatial expression of a specified gene in a single spatial transcriptomic dataset.
 
@@ -53,7 +53,7 @@ def plot_gene(sm_adata, gene_name, output_folder, figsize=(1,1),
     None
         Displays the plot and optionally saves it to the output folder.
     """
-    sc.settings.set_figure_params(dpi=300, facecolor="white")
+    sc.settings.set_figure_params(dpi=150, facecolor="white")
     
     if cmap is None:
         colors = ['#eaeaea', '#bb000b', 'black']
@@ -84,7 +84,7 @@ def plot_gene(sm_adata, gene_name, output_folder, figsize=(1,1),
 
 def plot_modules(sm_adata, node_label_df, output_folder, plots_per_row, min_genes=3, 
                  figsize=None, spot_size=25, fontsize=6, fontfamily='sans-serif', 
-                 cmap=None, dpi=900, save_plot=True):
+                 cmap=None, dpi=300, save_plot=True):
     """
     Plots module scores using sc.pl.spatial, arranging plots in rows with a fixed number of columns.
 
@@ -133,7 +133,7 @@ def plot_modules(sm_adata, node_label_df, output_folder, plots_per_row, min_gene
     None
         Displays the plots and optionally saves them to the output folder.
     """
-    sc.settings.set_figure_params(dpi=300, facecolor="white")
+    sc.settings.set_figure_params(dpi=150, facecolor="white")
     
     if figsize is None:
         figsize = (plots_per_row, 1)
@@ -203,7 +203,7 @@ def plot_modules(sm_adata, node_label_df, output_folder, plots_per_row, min_gene
 
 def plot_gene_multisample(sm_adata_set, adata_set_names, gene_name, output_folder, shared_scaling=False, 
                           figsize=None, spot_size=25, fontsize=6, fontfamily='sans-serif', cmap=None,
-                          dpi=900, save_plot=True):
+                          dpi=300, save_plot=True):
     """
     Plots the spatial expression of a specified gene across multiple spatial transcriptomic datasets,
     with an option for shared scaling across datasets.
@@ -253,7 +253,7 @@ def plot_gene_multisample(sm_adata_set, adata_set_names, gene_name, output_folde
     None
         Displays the plots and optionally saves them.
     """
-    sc.settings.set_figure_params(dpi=300, facecolor="white")
+    sc.settings.set_figure_params(dpi=150, facecolor="white")
     
     if figsize is None:
         figsize = (len(sm_adata_set), 1)
@@ -339,7 +339,7 @@ def plot_gene_multisample(sm_adata_set, adata_set_names, gene_name, output_folde
 
 def plot_modules_multisample(sm_adata_set, adata_set_names, node_label_df, output_folder, 
                              shared_scaling=False, min_genes=3, figsize=None, spot_size=25,
-                             fontsize=6, fontfamily='sans-serif', cmap=None, dpi=900, save_plot=True):
+                             fontsize=6, fontfamily='sans-serif', cmap=None, dpi=300, save_plot=True):
     """
     Plots multi-dataset gene modules with an option for shared scaling across datasets.
     
@@ -392,7 +392,7 @@ def plot_modules_multisample(sm_adata_set, adata_set_names, node_label_df, outpu
     None: 
         Displays the plots and optionally saves them to the output folder.
     """
-    sc.settings.set_figure_params(dpi=300, facecolor="white")
+    sc.settings.set_figure_params(dpi=150, facecolor="white")
     
     if figsize == None:
         figsize = (len(sm_adata_set), 1)

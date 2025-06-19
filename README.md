@@ -30,6 +30,6 @@ After installing required packages above, the Smoothie repository may be accesse
 `git clone https://github.com/caholdener01/Smoothie.git`
 
 ## Usage
-Example scripts for single dataset analysis and multi-dataset analysis are included in the folder `/examples`. 
+Example scripts and demos for single dataset analysis and multi-dataset analysis are included in the folder `/examples`. 
 
-### This repository is still under development.
+#### This repository is still under development.

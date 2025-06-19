@@ -115,7 +115,7 @@ def get_correlations_to_GOI(pearsonR_mat, gene_names, GOI, reverse_order=False, 
     
     if plot_histogram:
         # Plot histogram of Pearson correlations
-        plt.figure(figsize=(6, 4), dpi=300)
+        plt.figure(figsize=(6, 4), dpi=150)
         plt.hist(goi_pearson_R, bins=100, color='blue', edgecolor='black')
         plt.xlabel('PCC')
         plt.ylabel('Frequency')

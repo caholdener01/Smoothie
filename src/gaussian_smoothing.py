@@ -432,7 +432,7 @@ def run_inplace_smoothing(ADATA,
     time.sleep(0.1)
 
     runtime = time.time() - t0
-    print("Total runtime for grid-based Gaussian smoothing: {:.2f} seconds.".format(runtime))
+    print("Total runtime for in-place Gaussian smoothing: {:.2f} seconds.".format(runtime))
                                                          
     return complete_sm_adata
 
