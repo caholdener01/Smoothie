@@ -138,9 +138,10 @@ def create_gene_embeddings(aligned_pearsonR_tensor, sm_adata_set, pcc_cutoff, no
 
     # Extract submatrix for robust genes
     aligned_pearsonR_tensor_robust = aligned_pearsonR_tensor[gene_above_cutoff, :, :][:, gene_above_cutoff, :]
-    epsilon = 1e-5  # Small value to avoid division by zero
-    aligned_pearsonR_tensor_robust = np.clip(aligned_pearsonR_tensor_robust, -1 + epsilon, 1 - epsilon)
     
+    # BUG FIX! Now, we set correlations >= 0.999 or <= -0.999 to NaN before Fisher Z-transform
+    aligned_pearsonR_tensor_robust[np.abs(aligned_pearsonR_tensor_robust) >= 0.999] = np.nan
+
     # Convert to Fisher’s Z-Scores
     Zscore_aligned_pearsonR_tensor_robust = 0.5 * np.log((1 + aligned_pearsonR_tensor_robust) / (1 - aligned_pearsonR_tensor_robust))
 

@@ -32,4 +32,4 @@ After installing required packages above, the Smoothie repository may be accesse
 ## Usage
 Example scripts and demos for single dataset analysis and multi-dataset analysis are included in the folder `/examples`. 
 
-#### This repository is still under development.
+#### Smoothie Version 1.0.0 will be available in the next week!
