@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/smoothie-st)](https://pypi.org/project/smoothie-st/)
 [![Documentation](https://img.shields.io/badge/docs-website-blue)](https://caholdener01.github.io/Smoothie/)
-[![Python](https://img.shields.io/pypi/pyversions/smoothie-st)](https://pypi.org/project/smoothie-st/)
+[![Python](https://img.shields.io/badge/python->=3.9-blue)](https://pypi.org/project/smoothie-st/)
 [![License](https://img.shields.io/github/license/caholdener01/Smoothie)](LICENSE)
 
 **Documentation: [https://caholdener01.github.io/Smoothie/](https://caholdener01.github.io/Smoothie/)**
