@@ -1,0 +1,1 @@
+![Graphical Overview](images/graphical_overview.png)

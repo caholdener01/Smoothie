@@ -1,0 +1,7 @@
+pandas==1.5.3
+scipy==1.9.3
+scanpy==1.9.3
+numpy==1.23.5
+matplotlib==3.7.1
+anndata==0.9.2
+igraph==0.10.6

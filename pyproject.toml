@@ -1,6 +1,12 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "Smoothie"
-version = "0.2.4"
+name = "smoothie-st"
+version = "1.0.0"
+description = "A package for analyzing spatial transcriptomics data with Gaussian smoothing, spatial gene correlation network clustering, gene module visualization, and multi-sample integration."
+readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
 authors = [
@@ -11,7 +17,18 @@ dependencies = [
     "numpy>=1.23.5",
     "pandas>=1.5.3",
     "scanpy>=1.9.3",
+    "seaborn>=0.11.0",
     "matplotlib>=3.7.1",
     "scipy>=1.9.3",
     "igraph>=0.10.6",
+    "pyarrow>=10.0.0",
 ]
+
+[project.urls]
+Homepage = "https://caholdener01.github.io/Smoothie/"
+Documentation = "https://caholdener01.github.io/Smoothie/"
+Repository = "https://github.com/caholdener01/Smoothie"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["smoothie*"]

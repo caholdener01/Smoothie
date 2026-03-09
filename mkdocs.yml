@@ -1,0 +1,65 @@
+site_name: Smoothie (Spatial Transcriptomics)
+
+repo_url: https://github.com/caholdener01/Smoothie
+repo_name: caholdener01/Smoothie
+  
+theme:
+  name: material
+  logo: images/smoothing_logo.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+  - scheme: default   # Light mode
+    primary: custom
+    accent: custom
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  - scheme: slate     # Dark mode
+    primary: custom
+    accent: custom
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+  features:
+    - navigation.tabs 
+    - navigation.sections 
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - mkdocs-jupyter:
+      execute: false 
+      include_source: true 
+      ignore_h1_titles: true 
+  - include-markdown
+
+nav:
+  - Home: index.md #DONE
+  - Installation: installation.md #DONE
+  - Graphical Overview: graphical_overview.md #DONE
+  - Examples:
+      - "Single Dataset Pipeline": examples/single_dataset_pipeline.ipynb #DONE
+      - "Multiple Datasets Pipeline": examples/multi_dataset_pipeline.ipynb #DONE
+  - Tutorials: 
+      - Single Dataset Pipelines:
+          - "Slide-seq Adult Mouse Cerebellum": tutorials/slideseq_cerebellum_single_dataset_pipeline.ipynb #DONE
+          - "Stereo-seq Mouse E16.5 Embryo": tutorials/stereoseq_embryo_single_dataset_pipeline.ipynb #DONE
+          - "Visium-HD Human Ovarian Cancer": tutorials/visiumhd_ovarian_cancer_single_dataset_pipeline.ipynb #DONE
+          - "Xenium Human Renal Cell Carcinoma": tutorials/xenium_renal_cell_carcinoma_single_dataset_pipeline.ipynb #DONE
+      - Multi-dataset Pipelines:
+          - "Slide-seq Mouse Ovulating Ovaries Timecourse": tutorials/slideseq_ovaries_multi_dataset_pipeline.ipynb #DONE
+          - "Stereo-seq Mouse Embryonic Development Timecourse": tutorials/stereoseq_embryos_multi_dataset_pipeline.ipynb #DONE
+  - Guides:
+      - "1. Creating AnnData Object": guides/convert_to_anndata.md #DONE
+      - "2. Micron-to-Unit Conversion Factors for S.T. Platforms": guides/micron_to_unit_conversion_table.md #DONE
+      - "3. Network Visualization using Cytoscape": guides/cytoscape_instructions.md #DONE
+  - API Reference: api.md #DONE
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences

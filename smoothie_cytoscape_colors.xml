@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vizmap id="VizMap-2026_03_02-16_13" documentVersion="3.1">
+    <visualStyle name="smoothie_cytoscape_colors">
+        <network>
+            <visualProperty default="0.0" name="NETWORK_DEPTH"/>
+            <visualProperty default="" name="NETWORK_TITLE"/>
+            <visualProperty default="#FFFFFF" name="NETWORK_BACKGROUND_PAINT"/>
+            <visualProperty default="true" name="NETWORK_NODE_SELECTION"/>
+            <visualProperty default="550.0" name="NETWORK_SIZE"/>
+            <visualProperty default="550.0" name="NETWORK_WIDTH"/>
+            <visualProperty default="400.0" name="NETWORK_HEIGHT"/>
+            <visualProperty default="1.0" name="NETWORK_SCALE_FACTOR"/>
+            <visualProperty default="false" name="NETWORK_FORCE_HIGH_DETAIL"/>
+            <visualProperty default="0.0" name="NETWORK_CENTER_X_LOCATION"/>
+            <visualProperty default="true" name="NETWORK_EDGE_SELECTION"/>
+            <visualProperty default="false" name="NETWORK_ANNOTATION_SELECTION"/>
+            <visualProperty default="0.0" name="NETWORK_CENTER_Z_LOCATION"/>
+            <visualProperty default="0.0" name="NETWORK_CENTER_Y_LOCATION"/>
+            <visualProperty default="false" name="NETWORK_NODE_LABEL_SELECTION"/>
+        </network>
+        <node>
+            <dependency value="true" name="nodeCustomGraphicsSizeSync"/>
+            <dependency value="false" name="nodeSizeLocked"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_8"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_LABEL_POSITION"/>
+            <visualProperty default="75.0" name="NODE_WIDTH"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_1"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_4"/>
+            <visualProperty default="40.0" name="NODE_HEIGHT"/>
+            <visualProperty default="NONE" name="NODE_LABEL_BACKGROUND_SHAPE"/>
+            <visualProperty default="3.0" name="NODE_BORDER_WIDTH"/>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_8, name=Node Custom Paint 8)" name="NODE_CUSTOMPAINT_8"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_1"/>
+            <visualProperty default="ROUND_RECTANGLE" name="NODE_SHAPE"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_9"/>
+            <visualProperty default="#FFFF00" name="NODE_SELECTED_PAINT"/>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_1, name=Node Custom Paint 1)" name="NODE_CUSTOMPAINT_1"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_5"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_9"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_2"/>
+            <visualProperty default="0.0" name="NODE_X_LOCATION"/>
+            <visualProperty default="#B6B6B6" name="NODE_LABEL_BACKGROUND_COLOR"/>
+            <visualProperty default="SansSerif,plain,12" name="NODE_LABEL_FONT_FACE"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_3"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_7"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_5"/>
+            <visualProperty default="" name="NODE_TOOLTIP"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_4"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_5"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_6"/>
+            <visualProperty default="#89D0F5" name="NODE_FILL_COLOR">
+                <continuousMapping attributeName="module_label" attributeType="float">
+                    <continuousMappingPoint attrValue="1.0" equalValue="#41AB5D" greaterValue="#41AB5D" lesserValue="#FDE725"/>
+                    <continuousMappingPoint attrValue="3.000000149011612" equalValue="#003399" greaterValue="#003399" lesserValue="#003399"/>
+                    <continuousMappingPoint attrValue="5.000000298023224" equalValue="#9EBCDA" greaterValue="#9EBCDA" lesserValue="#9EBCDA"/>
+                    <continuousMappingPoint attrValue="7.000000715255737" equalValue="#CE1256" greaterValue="#CE1256" lesserValue="#CE1256"/>
+                    <continuousMappingPoint attrValue="9.000000596046448" equalValue="#FC8D59" greaterValue="#FC8D59" lesserValue="#FC8D59"/>
+                    <continuousMappingPoint attrValue="11.000000476837158" equalValue="#FED976" greaterValue="#FED976" lesserValue="#FED976"/>
+                    <continuousMappingPoint attrValue="13.000001430511475" equalValue="#74C476" greaterValue="#74C476" lesserValue="#74C476"/>
+                    <continuousMappingPoint attrValue="15.000000238418579" equalValue="#4EB3D3" greaterValue="#4EB3D3" lesserValue="#4EB3D3"/>
+                    <continuousMappingPoint attrValue="17.000001192092896" equalValue="#D0D1E6" greaterValue="#D0D1E6" lesserValue="#D0D1E6"/>
+                    <continuousMappingPoint attrValue="19.0" equalValue="#FA9FB5" greaterValue="#FA9FB5" lesserValue="#FA9FB5"/>
+                    <continuousMappingPoint attrValue="21.000000953674316" equalValue="#AE017E" greaterValue="#AE017E" lesserValue="#AE017E"/>
+                    <continuousMappingPoint attrValue="22.99999976158142" equalValue="#4A1486" greaterValue="#4A1486" lesserValue="#4A1486"/>
+                    <continuousMappingPoint attrValue="25.00000286102295" equalValue="#8C2D04" greaterValue="#8C2D04" lesserValue="#8C2D04"/>
+                    <continuousMappingPoint attrValue="26.999999523162842" equalValue="#7A0177" greaterValue="#7A0177" lesserValue="#7A0177"/>
+                    <continuousMappingPoint attrValue="29.000000476837158" equalValue="#333300" greaterValue="#333300" lesserValue="#333300"/>
+                    <continuousMappingPoint attrValue="30.99999713897705" equalValue="#003366" greaterValue="#003366" lesserValue="#003366"/>
+                    <continuousMappingPoint attrValue="34.999999046325684" equalValue="#999900" greaterValue="#999900" lesserValue="#999900"/>
+                    <continuousMappingPoint attrValue="38.00000047683716" equalValue="#00FFCC" greaterValue="#00FFCC" lesserValue="#00FFCC"/>
+                    <continuousMappingPoint attrValue="41.00000190734863" equalValue="#FF3300" greaterValue="#FF3300" lesserValue="#FF3300"/>
+                    <continuousMappingPoint attrValue="43.999999046325684" equalValue="#D0D1E6" greaterValue="#D0D1E6" lesserValue="#D0D1E6"/>
+                    <continuousMappingPoint attrValue="47.46808671951294" equalValue="#FDD49E" greaterValue="#FDD49E" lesserValue="#FDD49E"/>
+                    <continuousMappingPoint attrValue="51.553189754486084" equalValue="#D9F0A3" greaterValue="#D9F0A3" lesserValue="#D9F0A3"/>
+                    <continuousMappingPoint attrValue="55.89361763000488" equalValue="#CCEBC5" greaterValue="#CCEBC5" lesserValue="#CCEBC5"/>
+                    <continuousMappingPoint attrValue="59.97872495651245" equalValue="#BFD3E6" greaterValue="#BFD3E6" lesserValue="#BFD3E6"/>
+                    <continuousMappingPoint attrValue="66.98999357223511" equalValue="#CCECE6" greaterValue="#CCECE6" lesserValue="#CCECE6"/>
+                    <continuousMappingPoint attrValue="67.0000057220459" equalValue="#D9D9D9" greaterValue="#D9D9D9" lesserValue="#D9D9D9"/>
+                    <continuousMappingPoint attrValue="145.0" equalValue="#D9D9D9" greaterValue="#D9D9D9" lesserValue="#D9D9D9"/>
+                </continuousMapping>
+            </visualProperty>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_9, name=Node Custom Paint 9)" name="NODE_CUSTOMPAINT_9"/>
+            <visualProperty default="SOLID" name="NODE_BORDER_STROKE"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_2"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_3"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_7"/>
+            <visualProperty default="10.0" name="COMPOUND_NODE_PADDING"/>
+            <visualProperty default="" name="NODE_LABEL">
+                <passthroughMapping attributeName="name" attributeType="string"/>
+            </visualProperty>
+            <visualProperty default="0.0" name="NODE_DEPTH"/>
+            <visualProperty default="0.0" name="NODE_Y_LOCATION"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_4"/>
+            <visualProperty default="200.0" name="NODE_LABEL_WIDTH"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_1"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_7"/>
+            <visualProperty default="255" name="NODE_LABEL_TRANSPARENCY"/>
+            <visualProperty default="255" name="NODE_BORDER_TRANSPARENCY"/>
+            <visualProperty default="255" name="NODE_TRANSPARENCY"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_6"/>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_6, name=Node Custom Paint 6)" name="NODE_CUSTOMPAINT_6"/>
+            <visualProperty default="#000000" name="NODE_LABEL_COLOR"/>
+            <visualProperty default="ROUND_RECTANGLE" name="COMPOUND_NODE_SHAPE"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_8"/>
+            <visualProperty default="0.0" name="NODE_Z_LOCATION">
+                <continuousMapping attributeName="module_label" attributeType="float">
+                    <continuousMappingPoint attrValue="1.0" equalValue="10.0" greaterValue="10.0" lesserValue="1.0"/>
+                    <continuousMappingPoint attrValue="219.0" equalValue="30.0" greaterValue="1.0" lesserValue="30.0"/>
+                </continuousMapping>
+            </visualProperty>
+            <visualProperty default="C,C,c,0.00,0.00" name="NODE_CUSTOMGRAPHICS_POSITION_8"/>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_4, name=Node Custom Paint 4)" name="NODE_CUSTOMPAINT_4"/>
+            <visualProperty default="12" name="NODE_LABEL_FONT_SIZE"/>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_2, name=Node Custom Paint 2)" name="NODE_CUSTOMPAINT_2"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_6"/>
+            <visualProperty default="0.0" name="NODE_LABEL_ROTATION"/>
+            <visualProperty default="false" name="NODE_SELECTED"/>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_3, name=Node Custom Paint 3)" name="NODE_CUSTOMPAINT_3"/>
+            <visualProperty default="#252525" name="NODE_BORDER_PAINT"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_2"/>
+            <visualProperty default="#1E90FF" name="NODE_PAINT"/>
+            <visualProperty default="50.0" name="NODE_CUSTOMGRAPHICS_SIZE_9"/>
+            <visualProperty default="35.0" name="NODE_SIZE"/>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_7, name=Node Custom Paint 7)" name="NODE_CUSTOMPAINT_7"/>
+            <visualProperty default="org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ]," name="NODE_CUSTOMGRAPHICS_3"/>
+            <visualProperty default="true" name="NODE_VISIBLE"/>
+            <visualProperty default="DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_5, name=Node Custom Paint 5)" name="NODE_CUSTOMPAINT_5"/>
+            <visualProperty default="true" name="NODE_NESTED_NETWORK_IMAGE_VISIBLE"/>
+            <visualProperty default="255" name="NODE_LABEL_BACKGROUND_TRANSPARENCY"/>
+        </node>
+        <edge>
+            <dependency value="false" name="arrowColorMatchesEdge"/>
+            <visualProperty default="1.0" name="EDGE_WIDTH"/>
+            <visualProperty default="#FF0000" name="EDGE_STROKE_SELECTED_PAINT"/>
+            <visualProperty default="#404040" name="EDGE_UNSELECTED_PAINT"/>
+            <visualProperty default="#FFFF00" name="EDGE_SOURCE_ARROW_SELECTED_PAINT"/>
+            <visualProperty default="AUTO_BEND" name="EDGE_STACKING"/>
+            <visualProperty default="#FFFF00" name="EDGE_TARGET_ARROW_SELECTED_PAINT"/>
+            <visualProperty default="#000000" name="EDGE_SOURCE_ARROW_UNSELECTED_PAINT"/>
+            <visualProperty default="10" name="EDGE_LABEL_FONT_SIZE"/>
+            <visualProperty default="#525252" name="EDGE_STROKE_UNSELECTED_PAINT"/>
+            <visualProperty default="true" name="EDGE_VISIBLE"/>
+            <visualProperty default="6.0" name="EDGE_TARGET_ARROW_SIZE"/>
+            <visualProperty default="255" name="EDGE_LABEL_BACKGROUND_TRANSPARENCY"/>
+            <visualProperty default="255" name="EDGE_LABEL_TRANSPARENCY"/>
+            <visualProperty default="" name="EDGE_BEND"/>
+            <visualProperty default="#323232" name="EDGE_PAINT"/>
+            <visualProperty default="true" name="EDGE_CURVED"/>
+            <visualProperty default="false" name="EDGE_LABEL_AUTOROTATE"/>
+            <visualProperty default="false" name="EDGE_SELECTED"/>
+            <visualProperty default="200.0" name="EDGE_LABEL_WIDTH"/>
+            <visualProperty default="0.5" name="EDGE_STACKING_DENSITY"/>
+            <visualProperty default="#000000" name="EDGE_TARGET_ARROW_UNSELECTED_PAINT"/>
+            <visualProperty default="" name="EDGE_TOOLTIP"/>
+            <visualProperty default="" name="EDGE_LABEL"/>
+            <visualProperty default="0.0" name="EDGE_Z_ORDER"/>
+            <visualProperty default="#FF0000" name="EDGE_SELECTED_PAINT"/>
+            <visualProperty default="Dialog,plain,10" name="EDGE_LABEL_FONT_FACE"/>
+            <visualProperty default="NONE" name="EDGE_LABEL_BACKGROUND_SHAPE"/>
+            <visualProperty default="SOLID" name="EDGE_LINE_TYPE"/>
+            <visualProperty default="#B6B6B6" name="EDGE_LABEL_BACKGROUND_COLOR"/>
+            <visualProperty default="C,C,c,0.00,0.00" name="EDGE_LABEL_POSITION"/>
+            <visualProperty default="NONE" name="EDGE_TARGET_ARROW_SHAPE"/>
+            <visualProperty default="255" name="EDGE_TRANSPARENCY"/>
+            <visualProperty default="NONE" name="EDGE_SOURCE_ARROW_SHAPE"/>
+            <visualProperty default="0.0" name="EDGE_LABEL_ROTATION"/>
+            <visualProperty default="#000000" name="EDGE_LABEL_COLOR"/>
+            <visualProperty default="6.0" name="EDGE_SOURCE_ARROW_SIZE"/>
+        </edge>
+    </visualStyle>
+</vizmap>

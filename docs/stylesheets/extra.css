@@ -1,0 +1,45 @@
+:root {
+    --md-primary-fg-color:        #11456b; 
+    --md-primary-fg-color--light: #227cbe; 
+    --md-primary-fg-color--dark:  #0b304c; 
+    --md-accent-fg-color:         #227cbe;
+
+    --md-typeset-a-color:         #11456b; 
+}
+
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color:        #11456b; 
+    --md-primary-fg-color--light: #c0e6ff; 
+    --md-primary-fg-color--dark:  #78b8dd; 
+    --md-accent-fg-color:         #7fc1ff; 
+    
+    --md-default-bg-color:        #1e1e1e; 
+    --md-default-fg-color:        #e0e6ed; 
+
+    --md-typeset-a-color:         #a0d8ff; 
+}
+
+.md-typeset h1, 
+.md-typeset h2 {
+    font-weight: 500 !important;
+}
+
+.md-typeset a {
+    text-decoration: underline;
+}
+
+.md-grid {
+    max-width: 1400px !important;
+}
+
+.md-header__button.md-logo img {
+    height: 30px; 
+}
+
+.md-header__title {
+    font-size: 1.2rem; 
+}
+
+.md-header__title .md-header__topic {
+    font-weight: 400 !important; 
+}
