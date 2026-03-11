@@ -4,7 +4,7 @@
 
 ### **Step 2: Download Smoothie Outputs to your Laptop**
 1. The function **smoothie.make_spatal_network** saves output files `network_[...].csv` and `nodelabels_[...].csv`. Download these two files from your server to your local laptop with Cytoscape installed.
-2. Additionally, download `smoothie_cytoscape_colors.xml` from the Smoothie Github [https://github.com/caholdener01/Smoothie/raw/main/cytoscape_colors.xml](https://github.com/caholdener01/Smoothie/raw/main/cytoscape_colors.xml).
+2. Additionally, download `smoothie_cytoscape_colors.xml` from the Smoothie Github [https://github.com/caholdener01/Smoothie/blob/main/smoothie_cytoscape_colors.xml](https://github.com/caholdener01/Smoothie/blob/main/smoothie_cytoscape_colors.xml).
 
 ### **Step 3: Import Files into Cytoscape**
 1. *File* > *Import* > *Network From File...*: Select `network_[...].csv` from your laptop.
