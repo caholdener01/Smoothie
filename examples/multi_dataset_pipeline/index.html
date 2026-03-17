@@ -2182,6 +2182,20 @@ dataset_names = ["Sample1", "Sample2", "Sample3"]</div>
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d3bd463a-b085-4d0f-bda1-5896d41880de">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The table below shows suggested QC values given the resolution of your AnnData spatial coordinates.</p>
+<ul>
+<li><strong>Note</strong>: If you have <strong>cell-segmented</strong> imaging / fine resolution data, then you should use the <strong>"Cell-sized"</strong> QC settings. If you have <strong>true individual transcripts or fine resolution</strong> data, then you should use the <strong>Fine / Imaging</strong> QC settings.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59a53b22-87dc-4c71-aad7-7037db1547b8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -2243,18 +2257,18 @@ dataset_names = ["Sample1", "Sample2", "Sample3"]</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># QC filtering for each dataset</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata_list</span><span class="p">)):</span>
     <span class="c1"># Filter spots with low UMI counts</span>
-    <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_cells</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">min_counts</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_cells</span><span class="p">(</span><span class="n">adata_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">min_counts</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="c1"># Filter genes with low counts/unique spots</span>
-    <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_genes</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">min_counts</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-    <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_genes</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">min_cells</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_genes</span><span class="p">(</span><span class="n">adata_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">min_counts</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_genes</span><span class="p">(</span><span class="n">adata_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">min_cells</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-3"># QC filtering for each dataset
 for i in range(len(adata_list)):
     # Filter spots with low UMI counts
-    sc.pp.filter_cells(adata, min_counts=50)
+    sc.pp.filter_cells(adata_list[i], min_counts=50)
     # Filter genes with low counts/unique spots
-    sc.pp.filter_genes(adata, min_counts=100)
-    sc.pp.filter_genes(adata, min_cells=10)</div>
+    sc.pp.filter_genes(adata_list[i], min_counts=100)
+    sc.pp.filter_genes(adata_list[i], min_cells=10)</div>
 </div>
 </div>
 </div>
@@ -2268,6 +2282,20 @@ for i in range(len(adata_list)):
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="normalization"><strong>Normalization</strong><a class="anchor-link" href="#normalization">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=513b32fb-9f25-4332-8b61-397f45400368">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Normalization depends on the resolution of your AnnData spatial coordinates.</p>
+<ul>
+<li><strong>Note</strong>: If you have <strong>cell-segmented</strong> imaging / fine resolution data, then you should use the <strong>"Cell-sized"</strong> normalization method. If you have <strong>true individual transcripts or fine resolution</strong> data, then you should use the <strong>Fine / Imaging</strong> normalization method.</li>
+</ul>
 </div>
 </div>
 </div>

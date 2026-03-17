@@ -2262,6 +2262,20 @@ adata.obsm["spatial"] = coords_matched[
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c9df7ac-5544-44c9-9a34-8e5b7022ecdb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The table below shows suggested QC values given the resolution of your AnnData spatial coordinates.</p>
+<ul>
+<li><strong>Note</strong>: If you have <strong>cell-segmented</strong> imaging / fine resolution data, then you should use the <strong>"Cell-sized"</strong> QC settings. If you have <strong>true individual transcripts or fine resolution</strong> data, then you should use the <strong>Fine / Imaging</strong> QC settings.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6915d90-fc0f-47c7-aa88-fc32c4c1f6d9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -2386,6 +2400,20 @@ sc.pp.filter_genes(adata, min_cells=50)</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="normalization"><strong>Normalization</strong><a class="anchor-link" href="#normalization">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=88af7e30-b661-49d6-bc81-55dc2d65148d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Normalization depends on the resolution of your AnnData spatial coordinates.</p>
+<ul>
+<li><strong>Note</strong>: If you have <strong>cell-segmented</strong> imaging / fine resolution data, then you should use the <strong>"Cell-sized"</strong> normalization method. If you have <strong>true individual transcripts or fine resolution</strong> data, then you should use the <strong>Fine / Imaging</strong> normalization method.</li>
+</ul>
 </div>
 </div>
 </div>

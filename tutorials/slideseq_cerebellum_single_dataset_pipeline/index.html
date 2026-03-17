@@ -2177,6 +2177,20 @@ adata = ad.read_h5ad("./../../data/rodriques_slideseq.h5ad")</div>
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=06301323-bf10-4b39-9702-7b0fae4c94f0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The table below shows suggested QC values given the resolution of your AnnData spatial coordinates.</p>
+<ul>
+<li><strong>Note</strong>: If you have <strong>cell-segmented</strong> imaging / fine resolution data, then you should use the <strong>"Cell-sized"</strong> QC settings. If you have <strong>true individual transcripts or fine resolution</strong> data, then you should use the <strong>Fine / Imaging</strong> QC settings.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3cceedb3-f1d7-4995-8954-e7a929f2614e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -2259,6 +2273,20 @@ sc.pp.filter_genes(adata, min_cells=50)</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="normalization"><strong>Normalization</strong><a class="anchor-link" href="#normalization">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b829ca11-1263-4f0b-8982-af167f79f5c5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Normalization depends on the resolution of your AnnData spatial coordinates.</p>
+<ul>
+<li><strong>Note</strong>: If you have <strong>cell-segmented</strong> imaging / fine resolution data, then you should use the <strong>"Cell-sized"</strong> normalization method. If you have <strong>true individual transcripts or fine resolution</strong> data, then you should use the <strong>Fine / Imaging</strong> normalization method.</li>
+</ul>
 </div>
 </div>
 </div>
