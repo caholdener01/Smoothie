@@ -23,5 +23,25 @@
 
     <img src="../../images/colorful_network.png" alt="colorful_network.png" width="500"/>
 
-### **Step 5: Explore Network Further**
+### **(Optional) Step 5: Tidy up the Network's Appearance**
+1. Add an edge filter for the network (Use the PCC column).
+
+    <img src="../../images/network_tidying_pt1.png" alt="network_tidying_pt1.png" width="500"/>
+    <img src="../../images/network_tidying_pt2.png" alt="network_tidying_pt2.png" width="500"/>
+
+2. Slightly increase the PCC lower filter value (by 0.05 to 0.1) and apply the filter.
+
+    <img src="../../images/network_tidying_pt3.png" alt="network_tidying_pt3.png" width="500"/>
+
+3. Next, select nodes connected by selected edges, and hide non-selected nodes and edges.
+
+    <img src="../../images/network_tidying_pt4.png" alt="network_tidying_pt4.png" width="500"/>
+    <img src="../../images/network_tidying_pt5.png" alt="network_tidying_pt5.png" width="500"/>
+
+4. Export the network.
+
+    <img src="../../images/network_tidying_pt6.png" alt="network_tidying_pt6.png" width="500"/>
+    <img src="../../images/network_tidying_pt7.png" alt="network_tidying_pt7.png" width="500"/>
+
+### **(Optional) Step 6: Explore Network Further**
 Cytoscape has many useful features. You can explore more built-in features here: [https://cytoscape.org/](https://cytoscape.org/).

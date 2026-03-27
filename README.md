@@ -67,10 +67,10 @@ To use Smoothie, make a clean copy of either the single-dataset or multi-dataset
 
 If you use Smoothie, please cite:
 
-Holdener, C. & De Vlaminck, I. (2025).
-Smoothie: Efficient Inference of Spatial Co-expression Networks from Denoised Spatial Transcriptomics Data.
-bioRxiv.
-[https://doi.org/10.1101/2025.02.26.640406](https://doi.org/10.1101/2025.02.26.640406)
+Holdener, C., De Vlaminck, I. 
+Smoothie: efficient inference and integration of spatial co-expression networks from denoised spatial transcriptomics data. 
+Commun Biol 9, 459 (2026). 
+[https://doi.org/10.1038/s42003-026-09898-z](https://doi.org/10.1038/s42003-026-09898-z)
 
 ## License
 
