@@ -3026,7 +3026,7 @@ print(stability_df.tail(20))  # Least stable genes (value -1 indicates a gene wa
     <span class="n">gene_name</span><span class="o">=</span><span class="n">GOI</span><span class="p">,</span> 
     <span class="n">gene_stabilities</span><span class="o">=</span><span class="n">results</span><span class="p">[</span><span class="s1">'gene_stabilities'</span><span class="p">],</span> <span class="c1"># don't change</span>
     <span class="n">robust_gene_names</span><span class="o">=</span><span class="n">results</span><span class="p">[</span><span class="s1">'robust_gene_names'</span><span class="p">],</span> <span class="c1"># don't change</span>
-    <span class="n">dataset_names</span><span class="p">,</span> <span class="c1"># don't change</span>
+    <span class="n">dataset_names</span><span class="o">=</span><span class="n">dataset_names</span><span class="p">,</span> <span class="c1"># don't change</span>
     <span class="n">output_folder</span><span class="o">=</span><span class="s1">'./gene_stability_plots'</span>
 <span class="p">)</span>
 </pre></div>
@@ -3046,7 +3046,7 @@ smoothie.plot_gene_stability(
     gene_name=GOI, 
     gene_stabilities=results['gene_stabilities'], # don't change
     robust_gene_names=results['robust_gene_names'], # don't change
-    dataset_names, # don't change
+    dataset_names=dataset_names, # don't change
     output_folder='./gene_stability_plots'
 )</div>
 </div>
@@ -3088,8 +3088,8 @@ smoothie.plot_gene_stability(
     <span class="n">module_label</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="c1"># Pick module label of interest</span>
     <span class="n">gene_stabilities</span><span class="o">=</span><span class="n">results</span><span class="p">[</span><span class="s1">'gene_stabilities'</span><span class="p">],</span> <span class="c1"># don't change</span>
     <span class="n">robust_gene_names</span><span class="o">=</span><span class="n">results</span><span class="p">[</span><span class="s1">'robust_gene_names'</span><span class="p">],</span> <span class="c1"># don't change</span>
-    <span class="n">node_label_df</span><span class="p">,</span> <span class="c1"># don't change</span>
-    <span class="n">dataset_names</span><span class="p">,</span> <span class="c1"># don't change</span>
+    <span class="n">node_label_df</span><span class="o">=</span><span class="n">node_label_df</span><span class="p">,</span> <span class="c1"># don't change</span>
+    <span class="n">dataset_names</span><span class="o">=</span><span class="n">dataset_names</span><span class="p">,</span> <span class="c1"># don't change</span>
     <span class="n">output_folder</span><span class="o">=</span><span class="s1">'./module_stability_plots'</span>
 <span class="p">)</span>
 </pre></div>
@@ -3097,8 +3097,8 @@ smoothie.plot_gene_stability(
     module_label = 3, # Pick module label of interest
     gene_stabilities=results['gene_stabilities'], # don't change
     robust_gene_names=results['robust_gene_names'], # don't change
-    node_label_df, # don't change
-    dataset_names, # don't change
+    node_label_df=node_label_df, # don't change
+    dataset_names=dataset_names, # don't change
     output_folder='./module_stability_plots'
 )</div>
 </div>
