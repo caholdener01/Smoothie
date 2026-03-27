@@ -44,4 +44,4 @@
     <img src="../../images/network_tidying_pt7.png" alt="network_tidying_pt7.png" width="500"/>
 
 ### **(Optional) Step 6: Explore Network Further**
-Cytoscape has many useful features. You can explore more built-in features here: [https://cytoscape.org/](https://cytoscape.org/).
+Cytoscape has many useful features. You can create different node/edge filters or explore more built-in features here: [https://cytoscape.org/](https://cytoscape.org/).
