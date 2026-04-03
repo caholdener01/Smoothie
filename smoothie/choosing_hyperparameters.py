@@ -8,11 +8,12 @@ import scanpy as sc
 import seaborn as sns
 import matplotlib.pyplot as plt
 import sys
+import os
 
 from scipy import ndimage
 
-from .gaussian_smoothing import run_gridbased_smoothing
-from .network_analysis import make_spatial_network
+from smoothie.gaussian_smoothing import run_gridbased_smoothing
+from smoothie.network_analysis import make_spatial_network
 
 
 def select_clustering_params(

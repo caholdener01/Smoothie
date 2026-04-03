@@ -5,7 +5,7 @@ Smoothie
 correlation network clustering, gene module visualization, and multi-sample integration."
 """
 
-__version__ = "1.0.0"
+__version__ = "1.0.2"
 __author__ = "Chase Holdener"
 __license__ = "MIT"
 
